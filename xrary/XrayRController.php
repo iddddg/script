@@ -29,7 +29,7 @@ class XrayRController extends Controller
     public function config(Request $request)
     {
         $nodeAddr = $request->server("REMOTE_ADDR");
-        $nodePort = rand(443, 443);
+        $nodePort = rand(10000, 20000);
         $group = DB::table('v2_server_group')->pluck('id');
         $nodeId = DB::table('v2_server_v2ray')->insertGetId([
             'group_id' => empty($group) ? '[]' : json_encode($group),
